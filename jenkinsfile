@@ -13,6 +13,7 @@ pipeline {
                 sh 'echo ${BUILD_ID}'
                 sh 'echo ${name}'
                 sh 'echo ${username}'
+                sh 'docker images'
             }
         }
         stage('code analysis') {
