@@ -53,7 +53,7 @@ pipeline {
             echo "why are you failing ? "
         }
         success{
-            echo "we successed ! "
+            echo "we succeeded ! "
         }
     }
 }
