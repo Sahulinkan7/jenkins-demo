@@ -14,6 +14,7 @@ pipeline {
                 sh 'echo ${name}'
                 sh 'echo ${username}'
                 sh 'whoami'
+                sh 'docker images'
             }
         }
         stage('code analysis') {
