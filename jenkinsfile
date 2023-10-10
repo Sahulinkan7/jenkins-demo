@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+    environment {
+        name ='linkan'
+    }
+    
+    stages {
+        stage('environment variables') {
+            environment {
+                username="sahulinkan7"
+            }
+            steps {
+                sh 'echo ${BUILD_ID}'
+                sh 'echo ${name}'
+                sh 'echo ${username}'
+            }
+        }
+        stage('code analysis') {
+            steps {
+                sh 'date'
+                sh 'pwd'
+                echo 'code check'
+                sh 'echo ${name}'
+                sh 'echo ${username}'
+            }
+        }
+        stage('deploy in test environment') {
+            steps {
+                sh '''
+                ls
+                pwd
+                ls -l
+                '''
+                echo 'deploy in test'
+            }
+        }
+        stage('deploy in preprod') {
+            steps {
+                echo 'deploy in preprod'
+            }
+        }
+        stage('deploy in prod') {
+            steps {
+                echo 'deploy in prod'
+            }
+        }
+    }
+    post{
+        always{
+            echo "i am available always"
+        }
+        failure{
+            echo "why are you failing ? "
+        }
+        success{
+            echo "we successed ! "
+        }
+    }
+}
